@@ -1,3 +1,8 @@
+resolvers ++= Seq(
+  Classpaths.sbtPluginSnapshots,
+  Classpaths.sbtPluginReleases
+)
+
 // pulls in: sbt-pgp, sbt-release, sbt-mima-plugin, sbt-dependency-graph, sbt-buildinfo, sbt-sonatype
 addSbtPlugin("org.typelevel" % "sbt-typelevel" % "0.3.1")
 
@@ -14,3 +19,5 @@ addSbtPlugin("io.spray" % "sbt-revolver" % "0.7.2")
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.0-M4")
 
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.0.4")
+
+addSbtPlugin("com.typesafe.sbt" %% "sbt-osgi" % "0.8.0-SNAPSHOT")

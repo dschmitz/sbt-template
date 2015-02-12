@@ -3,15 +3,15 @@ name := "sbt-template"
 version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.5"
-
 crossScalaVersions := Seq("2.11.5")
 
 description := "A purely functional Scala Application"
-
 homepage := Some(url("http://github.com/uport"))
 
 licenses := Seq("The Apache Software License, Version 2.0"
   -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+
+ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) }
 
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),

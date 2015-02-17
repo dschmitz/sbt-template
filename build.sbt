@@ -25,6 +25,7 @@ libraryDependencies ++= {
   val sparkV      = "1.2.1"
   val monocleV    = "1.0.1"
   val kafkaV      = "0.8.2.0"
+  val phantomV    = "1.5.0"
   val gatlingV    = "2.1.4"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                  % akkaV,
@@ -48,7 +49,7 @@ libraryDependencies ++= {
     "org.apache.kafka"            %% "kafka"                       % kafkaV,
 
     "com.typesafe.slick"          %% "slick"                       % "3.0.0-M1",
-    "org.reactivestreams"         %  "reactive-streams"            % "1.0.0.RC1",
+    "org.reactivestreams"         %  "reactive-streams"            % "1.0.0.RC3",
     
     "org.postgresql"              %  "postgresql"                  % "9.4-1200-jdbc41",
     "org.reactivemongo"           %% "reactivemongo"               % "0.11.0-SNAPSHOT",
@@ -59,7 +60,7 @@ libraryDependencies ++= {
     "org.log4s"                   %% "log4s"                       % "1.1.3",
     "org.scalatest"               %% "scalatest"                   % "2.2.4"  % "test",
     "org.specs2"                  %% "specs2"                      % "3.0-M3" % "test",
-    "org.scalacheck"              %% "scalacheck"                  % "1.12.1" % "test",
+    "org.scalacheck"              %% "scalacheck"                  % "1.12.2" % "test",
     "ch.qos.logback"              %  "logback-classic"             % "1.1.2"  % "test",
     "com.typesafe.akka"           %% "akka-testkit"                % akkaV    % "test",
     "io.gatling.highcharts"       %  "gatling-charts-highcharts"   % gatlingV % "test",

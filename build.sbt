@@ -2,8 +2,8 @@ organization := "io.uport"
 name := "sbt-template"
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.11.5"
-crossScalaVersions := Seq("2.11.5")
+scalaVersion := "2.11.6"
+crossScalaVersions := Seq("2.11.6")
 
 description := "A purely functional Scala Application"
 homepage := Some(url("http://github.com/uport"))
@@ -21,12 +21,14 @@ resolvers ++= Seq(
 
 libraryDependencies ++= {
   val akkaV       = "2.3.9"
-  val akkaStreamV = "1.0-M3"
+  val akkaStreamV = "1.0-M5"
   val sparkV      = "1.2.1"
   val monocleV    = "1.0.1"
-  val kafkaV      = "0.8.2.0"
+  val kafkaV      = "0.8.2.1"
   val phantomV    = "1.5.0"
   val gatlingV    = "2.1.4"
+  val slickV = "3.0.0-RC3"
+  val sccV = "1.2.0-rc3"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                  % akkaV,
     "com.typesafe.akka"           %% "akka-cluster"                % akkaV,
@@ -39,29 +41,36 @@ libraryDependencies ++= {
     "com.typesafe.akka"           %% "akka-http-testkit-experimental"    % akkaStreamV,
     "com.typesafe"                %  "config"                      % "1.2.1",
      
-    "org.apache.spark"            %% "spark-streaming"             % sparkV,
-    "org.apache.spark"            %% "spark-mllib"                 % sparkV,
-    "org.apache.spark"            %% "spark-catalyst"              % sparkV,
-    "org.apache.spark"            %% "spark-sql"                   % sparkV,
-    "org.apache.spark"            %% "spark-graphx"                % sparkV,
-    "org.apache.spark"            %% "spark-bagel"                 % sparkV,
+    "org.apache.spark"            %% "spark-streaming"             % sparkV % "provided",
+    "org.apache.spark"            %% "spark-mllib"                 % sparkV % "provided",
+    "org.apache.spark"            %% "spark-catalyst"              % sparkV % "provided",
+    "org.apache.spark"            %% "spark-sql"                   % sparkV % "provided",
+    "org.apache.spark"            %% "spark-graphx"                % sparkV % "provided",
+    "org.apache.spark"            %% "spark-bagel"                 % sparkV % "provided",
 
-    "org.apache.kafka"            %% "kafka"                       % kafkaV,
+    "org.apache.kafka"            %% "kafka"                       % kafkaV excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
 
-    "com.typesafe.slick"          %% "slick"                       % "3.0.0-M1",
+    "com.typesafe.slick"          %% "slick"                       % slickV,
+    "com.typesafe.slick"          %% "slick-codegen"               % slickV,
+    "com.github.tminglei"         %% "slick-pg"                    % "0.9.0-beta" excludeAll(ExclusionRule("com.typesafe.slick")),
     "org.reactivestreams"         %  "reactive-streams"            % "1.0.0.RC3",
+    "org.postgresql"              %  "postgresql"                  % "9.4-1201-jdbc41",
     
-    "org.postgresql"              %  "postgresql"                  % "9.4-1200-jdbc41",
+    "com.datastax.spark"          %% "spark-cassandra-connector"   % sccV,
+    "com.datastax.spark" 	  %% "spark-cassandra-connector-embedded" % sccV,
+    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	   % "2.1.5" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
+    "org.postgresql"              %  "postgresql"                  % "9.4-1201-jdbc41",
     "org.reactivemongo"           %% "reactivemongo"               % "0.11.0-SNAPSHOT",
-    "io.scalac"                   %% "reactive-rabbit"             % "0.2.2",
+    "io.scalac"                   %% "reactive-rabbit"             % "0.2.2" excludeAll(ExclusionRule("org.reactivestreams")),
 
     "com.github.julien-truffaut"  %% "monocle-core"                % monocleV,
     "com.github.julien-truffaut"  %% "monocle-macro"               % monocleV,
-    "org.log4s"                   %% "log4s"                       % "1.1.3",
+     
+    "org.slf4j" 		  %  "slf4j-api" 	           % "1.7.12", 
+    "ch.qos.logback"              %  "logback-classic"             % "1.1.2"  % "compile,runtime,test",
+    "org.log4s"                   %% "log4s"                       % "1.1.4",
     "org.scalatest"               %% "scalatest"                   % "2.2.4"  % "test",
-    "org.specs2"                  %% "specs2"                      % "3.0-M3" % "test",
     "org.scalacheck"              %% "scalacheck"                  % "1.12.2" % "test",
-    "ch.qos.logback"              %  "logback-classic"             % "1.1.2"  % "test",
     "com.typesafe.akka"           %% "akka-testkit"                % akkaV    % "test",
     "io.gatling.highcharts"       %  "gatling-charts-highcharts"   % gatlingV % "test",
     "io.gatling"                  %  "gatling-test-framework"      % gatlingV % "test"

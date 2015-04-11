@@ -20,3 +20,5 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.0-M4")
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.0.4")
 
 addSbtPlugin("com.typesafe.sbt" %% "sbt-osgi" % "0.7.0")
+
+addSbtPlugin("com.orrsella" % "sbt-stats" % "1.0.5")

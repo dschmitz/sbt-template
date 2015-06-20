@@ -28,16 +28,16 @@ libraryDependencies ++= {
   val phantomV    = "1.5.0"
   val gatlingV    = "2.1.6"
   val slickV      = "3.0.0"
-  val sccV        = "1.2.2"
+  val sccV        = "1.4.0-M1"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                  % akkaV,
     "com.typesafe.akka"           %% "akka-cluster"                % akkaV,
     "com.typesafe.akka"           %% "akka-remote"                 % akkaV,
     "com.typesafe.akka"           %% "akka-slf4j"                  % akkaV,
-    "com.typesafe.akka"           %% "akka-stream-experimental"          % akkaStreamV,
-    "com.typesafe.akka"           %% "akka-http-scala-experimental"       % akkaStreamV,
+    "com.typesafe.akka"           %% "akka-stream-experimental"    % akkaStreamV,
+    "com.typesafe.akka"           %% "akka-http-experimental"      % akkaStreamV,
     "com.typesafe.akka"           %% "akka-http-spray-json-experimental" % akkaStreamV,
-    "com.typesafe.akka"           %% "akka-http-testkit-scala-experimental"    % akkaStreamV,
+    "com.typesafe.akka"           %% "akka-http-testkit-experimental"    % akkaStreamV,
     "com.typesafe"                %  "config"                      % "1.3.0",
      
     "org.apache.spark"            %% "spark-streaming"             % sparkV % "provided",
@@ -46,6 +46,7 @@ libraryDependencies ++= {
     "org.apache.spark"            %% "spark-sql"                   % sparkV % "provided",
     "org.apache.spark"            %% "spark-graphx"                % sparkV % "provided",
     "org.apache.spark"            %% "spark-bagel"                 % sparkV % "provided",
+    "org.apache.spark"            %% "spark-streaming-kafka"       % sparkV % "provided",
 
     "org.apache.kafka"            %% "kafka"                       % kafkaV excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
 

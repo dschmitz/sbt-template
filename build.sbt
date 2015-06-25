@@ -2,8 +2,8 @@ organization := "io.uport"
 name := "sbt-template"
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.11.6"
-crossScalaVersions := Seq("2.11.6")
+scalaVersion := "2.11.7"
+crossScalaVersions := Seq("2.11.7")
 
 description := "A purely functional Scala Application"
 homepage := Some(url("http://github.com/uport"))
@@ -21,7 +21,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= {
   val akkaV       = "2.3.11"
-  val akkaStreamV = "1.0-RC3"
+  val akkaStreamV = "1.0-RC4"
   val sparkV      = "1.4.0"
   val monocleV    = "1.1.1"
   val kafkaV      = "0.8.2.1"

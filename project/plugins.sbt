@@ -11,7 +11,7 @@ addSbtPlugin("org.brianmckenna" % "sbt-wartremover" % "0.13")
 
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
 
-addSbtPlugin("io.gatling" % "gatling-sbt" % "2.1.0")
+addSbtPlugin("io.gatling" % "gatling-sbt" % "2.1.7")
 
 addSbtPlugin("io.spray" % "sbt-revolver" % "0.7.2")
 

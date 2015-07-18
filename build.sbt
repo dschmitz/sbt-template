@@ -20,20 +20,22 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaV       = "2.3.11"
-  val akkaStreamV = "1.0-RC4"
-  val sparkV      = "1.4.0"
+  val akkaV       = "2.3.12"
+  val akkaStreamV = "1.0"
+  val sparkV      = "1.4.1"
   val monocleV    = "1.1.1"
   val kafkaV      = "0.8.2.1"
   val phantomV    = "1.5.0"
-  val gatlingV    = "2.1.6"
+  val gatlingV    = "2.1.7"
   val slickV      = "3.0.0"
   val sccV        = "1.4.0-M1"
+  val codahaleVersion = "3.0.2"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                        % akkaV,
     "com.typesafe.akka"           %% "akka-cluster"                      % akkaV,
     "com.typesafe.akka"           %% "akka-remote"                       % akkaV,
     "com.typesafe.akka"           %% "akka-slf4j"                        % akkaV,
+    "com.typesafe.akka"           %% "akka-contrib"			 % akkaV,
     "com.typesafe.akka"           %% "akka-stream-experimental"          % akkaStreamV,
     "com.typesafe.akka"           %% "akka-http-experimental"            % akkaStreamV,
     "com.typesafe.akka"           %% "akka-http-spray-json-experimental" % akkaStreamV,
@@ -58,13 +60,16 @@ libraryDependencies ++= {
     
     "com.datastax.spark"          %% "spark-cassandra-connector"         % sccV,
     "com.datastax.spark" 	  %% "spark-cassandra-connector-embedded" % sccV,
-    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.6" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
+    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.7.1" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
     
-    "org.reactivemongo"           %% "reactivemongo"                     % "0.11.0-SNAPSHOT",
-    "io.scalac"                   %% "reactive-rabbit"                   % "1.0.0" excludeAll(ExclusionRule("org.reactivestreams")),
+    "org.reactivemongo"           %% "reactivemongo"                     % "0.11.2",
+    "io.scalac"                   %% "reactive-rabbit"                   % "1.0.1" excludeAll(ExclusionRule("org.reactivestreams")),
 
     "com.github.julien-truffaut"  %% "monocle-core"                      % monocleV,
     "com.github.julien-truffaut"  %% "monocle-macro"                     % monocleV,
+
+    "com.codahale.metrics"        %  "metrics-core"                      % codahaleVersion,
+    "com.codahale.metrics" 	  %  "metrics-graphite"                  % codahaleVersion,
      
     "org.slf4j" 		  %  "slf4j-api" 	                 % "1.7.12", 
     "ch.qos.logback"              %  "logback-classic"                   % "1.1.3"  % "compile,runtime,test",

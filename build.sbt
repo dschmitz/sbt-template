@@ -20,15 +20,15 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaV       = "2.3.12"
+  val akkaV       = "2.3.13"
   val akkaStreamV = "1.0"
   val sparkV      = "1.4.1"
   val monocleV    = "1.1.1"
   val kafkaV      = "0.8.2.1"
   val phantomV    = "1.5.0"
   val gatlingV    = "2.1.7"
-  val slickV      = "3.0.0"
-  val sccV        = "1.4.0-M1"
+  val slickV      = "3.0.2"
+  val sccV        = "1.4.0-M3"
   val codahaleVersion = "3.0.2"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                        % akkaV,
@@ -54,7 +54,7 @@ libraryDependencies ++= {
 
     "com.typesafe.slick"          %% "slick"                             % slickV,
     "com.typesafe.slick"          %% "slick-codegen"                     % slickV,
-    "com.github.tminglei"         %% "slick-pg"                          % "0.9.0" excludeAll(ExclusionRule("com.typesafe.slick")),
+    "com.github.tminglei"         %% "slick-pg"                          % "0.9.2" excludeAll(ExclusionRule("com.typesafe.slick")),
     "org.reactivestreams"         %  "reactive-streams"                  % "1.0.0",
     "org.postgresql"              %  "postgresql"                        % "9.4-1201-jdbc41",
     
@@ -63,7 +63,7 @@ libraryDependencies ++= {
     "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.7.1" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
     
     "org.reactivemongo"           %% "reactivemongo"                     % "0.11.2",
-    "io.scalac"                   %% "reactive-rabbit"                   % "1.0.1" excludeAll(ExclusionRule("org.reactivestreams")),
+    "io.scalac"                   %% "reactive-rabbit"                   % "1.0.2" excludeAll(ExclusionRule("org.reactivestreams")),
 
     "com.github.julien-truffaut"  %% "monocle-core"                      % monocleV,
     "com.github.julien-truffaut"  %% "monocle-macro"                     % monocleV,
@@ -73,7 +73,7 @@ libraryDependencies ++= {
      
     "org.slf4j" 		  %  "slf4j-api" 	                 % "1.7.12", 
     "ch.qos.logback"              %  "logback-classic"                   % "1.1.3"  % "compile,runtime,test",
-    "org.log4s"                   %% "log4s"                             % "1.1.5",
+    "org.log4s"                   %% "log4s"                             % "1.2.0",
     "org.scalatest"               %% "scalatest"                         % "2.2.5"  % "test",
     "org.scalacheck"              %% "scalacheck"                        % "1.12.3" % "test",
     "com.typesafe.akka"           %% "akka-testkit"                      % akkaV    % "test",
@@ -116,3 +116,5 @@ wartremover.wartremoverErrors in (Compile, compile) ++= Seq(
 )
 
 enablePlugins(GatlingPlugin)
+
+incOptions := incOptions.value.withNameHashing(true)

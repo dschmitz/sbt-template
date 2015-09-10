@@ -63,7 +63,7 @@ libraryDependencies ++= {
     "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.7.1" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
     
     "org.reactivemongo"           %% "reactivemongo"                     % "0.11.7",
-    "io.scalac"                   %% "reactive-rabbit"                   % "1.0.1" excludeAll(ExclusionRule("org.reactivestreams")),
+    "io.scalac"                   %% "reactive-rabbit"                   % "1.0.2" excludeAll(ExclusionRule("org.reactivestreams")),
 
     "com.github.julien-truffaut"  %% "monocle-core"                      % monocleV,
     "com.github.julien-truffaut"  %% "monocle-macro"                     % monocleV,
@@ -116,3 +116,5 @@ wartremover.wartremoverErrors in (Compile, compile) ++= Seq(
 )
 
 enablePlugins(GatlingPlugin)
+
+incOptions := incOptions.value.withNameHashing(true)

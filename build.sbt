@@ -20,15 +20,15 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaV       = "2.3.13"
+  val akkaV       = "2.3.14"
   val akkaStreamV = "1.0"
-  val sparkV      = "1.4.1"
+  val sparkV      = "1.5.1"
   val monocleV    = "1.1.1"
-  val kafkaV      = "0.8.2.1"
+  val kafkaV      = "0.8.2.2"
   val phantomV    = "1.5.0"
   val gatlingV    = "2.1.7"
-  val slickV      = "3.0.2"
-  val sccV        = "1.4.0-M3"
+  val slickV      = "3.0.3"
+  val sccV        = "1.4.0"
   val codahaleVersion = "3.0.2"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                        % akkaV,
@@ -62,7 +62,7 @@ libraryDependencies ++= {
     "com.datastax.spark" 	  %% "spark-cassandra-connector-embedded" % sccV,
     "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.7.1" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
     
-    "org.reactivemongo"           %% "reactivemongo"                     % "0.11.2",
+    "org.reactivemongo"           %% "reactivemongo"                     % "0.11.7",
     "io.scalac"                   %% "reactive-rabbit"                   % "1.0.2" excludeAll(ExclusionRule("org.reactivestreams")),
 
     "com.github.julien-truffaut"  %% "monocle-core"                      % monocleV,

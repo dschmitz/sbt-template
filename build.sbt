@@ -27,8 +27,8 @@ libraryDependencies ++= {
   val kafkaV      = "0.8.2.2"
   val phantomV    = "1.5.0"
   val gatlingV    = "2.1.7"
-  val slickV      = "3.0.3"
-  val sccV        = "1.5.0-M1"
+  val slickV      = "3.1.0"
+  val sccV        = "1.5.0-M2"
   val codahaleVersion = "3.0.2"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                        % akkaV,
@@ -54,13 +54,13 @@ libraryDependencies ++= {
 
     "com.typesafe.slick"          %% "slick"                             % slickV,
     "com.typesafe.slick"          %% "slick-codegen"                     % slickV,
-    "com.github.tminglei"         %% "slick-pg"                          % "0.9.2" excludeAll(ExclusionRule("com.typesafe.slick")),
+    "com.github.tminglei"         %% "slick-pg"                          % "0.10.0" excludeAll(ExclusionRule("com.typesafe.slick")),
     "org.reactivestreams"         %  "reactive-streams"                  % "1.0.0",
-    "org.postgresql"              %  "postgresql"                        % "9.4-1203-jdbc42",
+    "org.postgresql"              %  "postgresql"                        % "9.4-1204-jdbc42",
     
     "com.datastax.spark"          %% "spark-cassandra-connector"         % sccV,
     "com.datastax.spark" 	  %% "spark-cassandra-connector-embedded" % sccV,
-    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.7.1" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
+    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.8" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
     
     "org.reactivemongo"           %% "reactivemongo"                     % "0.11.7",
     "io.scalac"                   %% "reactive-rabbit"                   % "1.0.2" excludeAll(ExclusionRule("org.reactivestreams")),
@@ -118,3 +118,4 @@ wartremover.wartremoverErrors in (Compile, compile) ++= Seq(
 enablePlugins(GatlingPlugin)
 
 incOptions := incOptions.value.withNameHashing(true)
+

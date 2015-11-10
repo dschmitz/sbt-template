@@ -22,3 +22,6 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.1.0")
 addSbtPlugin("com.typesafe.sbt" %% "sbt-osgi" % "0.7.0")
 
 addSbtPlugin("com.orrsella" % "sbt-stats" % "1.0.5")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-license-report" % "1.1.0")
+

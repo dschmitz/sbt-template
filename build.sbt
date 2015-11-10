@@ -22,7 +22,7 @@ resolvers ++= Seq(
 libraryDependencies ++= {
   val akkaV       = "2.4.0"
   val akkaStreamV = "1.0"
-  val sparkV      = "1.5.1"
+  val sparkV      = "1.5.2"
   val monocleV    = "1.1.1"
   val kafkaV      = "0.8.2.2"
   val phantomV    = "1.5.0"
@@ -33,6 +33,8 @@ libraryDependencies ++= {
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                        % akkaV,
     "com.typesafe.akka"           %% "akka-cluster"                      % akkaV,
+    "com.typesafe.akka"           %% "akka-cluster-sharding"             % akkaV,
+    "com.typesafe.akka"           %% "akka-cluster-metrics"              % akkaV,
     "com.typesafe.akka"           %% "akka-remote"                       % akkaV,
     "com.typesafe.akka"           %% "akka-slf4j"                        % akkaV,
     "com.typesafe.akka"           %% "akka-contrib"			 % akkaV,
@@ -54,9 +56,9 @@ libraryDependencies ++= {
 
     "com.typesafe.slick"          %% "slick"                             % slickV,
     "com.typesafe.slick"          %% "slick-codegen"                     % slickV,
-    "com.github.tminglei"         %% "slick-pg"                          % "0.10.0" excludeAll(ExclusionRule("com.typesafe.slick")),
+    "com.github.tminglei"         %% "slick-pg"                          % "0.10.1" excludeAll(ExclusionRule("com.typesafe.slick")),
     "org.reactivestreams"         %  "reactive-streams"                  % "1.0.0",
-    "org.postgresql"              %  "postgresql"                        % "9.4-1204-jdbc42",
+    "org.postgresql"              %  "postgresql"                        % "9.4-1205-jdbc42",
     
     "com.datastax.spark"          %% "spark-cassandra-connector"         % sccV,
     "com.datastax.spark" 	  %% "spark-cassandra-connector-embedded" % sccV,
@@ -73,7 +75,7 @@ libraryDependencies ++= {
      
     "org.slf4j" 		  %  "slf4j-api" 	                 % "1.7.12", 
     "ch.qos.logback"              %  "logback-classic"                   % "1.1.3"  % "compile,runtime,test",
-    "org.log4s"                   %% "log4s"                             % "1.2.0",
+    "org.log4s"                   %% "log4s"                             % "1.2.1",
     "org.scalatest"               %% "scalatest"                         % "2.2.5"  % "test",
     "org.scalacheck"              %% "scalacheck"                        % "1.12.5" % "test",
     "com.typesafe.akka"           %% "akka-testkit"                      % akkaV    % "test",
@@ -119,3 +121,18 @@ enablePlugins(GatlingPlugin)
 
 incOptions := incOptions.value.withNameHashing(true)
 
+
+
+import com.typesafe.sbt.license.{LicenseInfo, DepModuleInfo}
+
+// Attach notes to modules
+licenseReportNotes := {
+  case DepModuleInfo(group, id, version) if group == "example" => "Made up artifact"
+}
+
+// Override the license information from ivy, if it's non-existent or
+// wrong
+licenseOverrides := {
+  case DepModuleInfo("org.apache.spark", _, _) =>
+    LicenseInfo(LicenseCategory.Apache, "Apache 2.0", "http://opensource.org/licenses/apache-2.0")
+}

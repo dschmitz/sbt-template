@@ -62,7 +62,7 @@ libraryDependencies ++= {
     
     "com.datastax.spark"          %% "spark-cassandra-connector"         % sccV,
     "com.datastax.spark" 	  %% "spark-cassandra-connector-embedded" % sccV,
-    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.8" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
+    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "2.1.9" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
     
     "org.reactivemongo"           %% "reactivemongo"                     % "0.11.7",
     "io.scalac"                   %% "reactive-rabbit"                   % "1.0.2" excludeAll(ExclusionRule("org.reactivestreams")),
@@ -73,7 +73,7 @@ libraryDependencies ++= {
     "com.codahale.metrics"        %  "metrics-core"                      % codahaleVersion,
     "com.codahale.metrics" 	  %  "metrics-graphite"                  % codahaleVersion,
      
-    "org.slf4j" 		  %  "slf4j-api" 	                 % "1.7.12", 
+    "org.slf4j" 		  %  "slf4j-api" 	                 % "1.7.13", 
     "ch.qos.logback"              %  "logback-classic"                   % "1.1.3"  % "compile,runtime,test",
     "org.log4s"                   %% "log4s"                             % "1.2.1",
     "org.scalatest"               %% "scalatest"                         % "2.2.5"  % "test",

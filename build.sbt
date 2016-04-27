@@ -2,8 +2,8 @@ organization := "io.uport"
 name := "sbt-template"
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.11.7"
-crossScalaVersions := Seq("2.11.7")
+scalaVersion := "2.11.8"
+crossScalaVersions := Seq("2.11.8")
 
 description := "A purely functional Scala Application"
 homepage := Some(url("http://github.com/uport"))
@@ -20,15 +20,14 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaV       = "2.4.2"
-  val akkaStreamV = "2.0.3"
-  val sparkV      = "1.6.0"
-  val monocleV    = "1.2.0"
+  val akkaV       = "2.4.4"
+  val sparkV      = "1.6.1"
+  val monocleV    = "1.2.1"
   val kafkaV      = "0.9.0.1"
   val phantomV    = "1.5.0"
-  val gatlingV    = "2.1.7"
+  val gatlingV    = "2.2.0"
   val slickV      = "3.1.1"
-  val sccV        = "1.5.0-RC1"
+  val sccV        = "1.6.0-M2"
   val codahaleVersion = "3.0.2"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                        % akkaV,
@@ -57,7 +56,7 @@ libraryDependencies ++= {
 
     "com.typesafe.slick"          %% "slick"                             % slickV,
     "com.typesafe.slick"          %% "slick-codegen"                     % slickV,
-    "com.github.tminglei"         %% "slick-pg"                          % "0.11.2" excludeAll(ExclusionRule("com.typesafe.slick")),
+    "com.github.tminglei"         %% "slick-pg"                          % "0.13.0" excludeAll(ExclusionRule("com.typesafe.slick")),
     "org.reactivestreams"         %  "reactive-streams"                  % "1.0.0",
     "org.postgresql"              %  "postgresql"                        % "9.4.1208",
     
@@ -65,8 +64,8 @@ libraryDependencies ++= {
     "com.datastax.spark" 	  %% "spark-cassandra-connector-embedded" % sccV,
     "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "3.0.0" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
     
-    "org.reactivemongo"           %% "reactivemongo"                     % "0.11.10",
-    "io.scalac"                   %% "reactive-rabbit"                   % "1.0.3" excludeAll(ExclusionRule("org.reactivestreams")),
+    "org.reactivemongo"           %% "reactivemongo"                     % "0.11.11",
+    "io.scalac"                   %% "reactive-rabbit"                   % "1.1.0" excludeAll(ExclusionRule("org.reactivestreams")),
 
     "com.github.julien-truffaut"  %% "monocle-core"                      % monocleV,
     "com.github.julien-truffaut"  %% "monocle-macro"                     % monocleV,
@@ -74,11 +73,11 @@ libraryDependencies ++= {
     "com.codahale.metrics"        %  "metrics-core"                      % codahaleVersion,
     "com.codahale.metrics" 	  %  "metrics-graphite"                  % codahaleVersion,
      
-    "org.slf4j" 		  %  "slf4j-api" 	                 % "1.7.16", 
-    "ch.qos.logback"              %  "logback-classic"                   % "1.1.5"  % "compile,runtime,test",
-    "org.log4s"                   %% "log4s"                             % "1.2.1",
+    "org.slf4j" 		  %  "slf4j-api" 	                 % "1.7.21", 
+    "ch.qos.logback"              %  "logback-classic"                   % "1.1.7"  % "compile,runtime,test",
+    "org.log4s"                   %% "log4s"                             % "1.3.0",
     "org.scalatest"               %% "scalatest"                         % "2.2.6"  % "test",
-    "org.scalacheck"              %% "scalacheck"                        % "1.13.0" % "test",
+    "org.scalacheck"              %% "scalacheck"                        % "1.13.1" % "test",
     "com.typesafe.akka"           %% "akka-testkit"                      % akkaV    % "test",
     "io.gatling.highcharts"       %  "gatling-charts-highcharts"         % gatlingV % "test",
     "io.gatling"                  %  "gatling-test-framework"            % gatlingV % "test"

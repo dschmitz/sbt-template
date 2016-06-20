@@ -20,14 +20,14 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaV       = "2.4.4"
+  val akkaV       = "2.4.7"
   val sparkV      = "1.6.1"
-  val monocleV    = "1.2.1"
-  val kafkaV      = "0.9.0.1"
+  val monocleV    = "1.2.2"
+  val kafkaV      = "0.10.0.0"
   val phantomV    = "1.5.0"
-  val gatlingV    = "2.2.0"
+  val gatlingV    = "2.2.2"
   val slickV      = "3.1.1"
-  val sccV        = "1.6.0-M2"
+  val sccV        = "1.6.0"
   val codahaleVersion = "3.0.2"
   Seq(
     "com.typesafe.akka"           %% "akka-actor"                        % akkaV,
@@ -56,16 +56,16 @@ libraryDependencies ++= {
 
     "com.typesafe.slick"          %% "slick"                             % slickV,
     "com.typesafe.slick"          %% "slick-codegen"                     % slickV,
-    "com.github.tminglei"         %% "slick-pg"                          % "0.13.0" excludeAll(ExclusionRule("com.typesafe.slick")),
+    "com.github.tminglei"         %% "slick-pg"                          % "0.14.1" excludeAll(ExclusionRule("com.typesafe.slick")),
     "org.reactivestreams"         %  "reactive-streams"                  % "1.0.0",
     "org.postgresql"              %  "postgresql"                        % "9.4.1208",
     
-    "com.datastax.spark"          %% "spark-cassandra-connector"         % sccV,
+    "com.datastax.spark"          %% "spark-cassandra-connector"          % sccV,
     "com.datastax.spark" 	  %% "spark-cassandra-connector-embedded" % sccV,
-    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	         % "3.0.0" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
+    "com.datastax.cassandra" 	  %  "cassandra-driver-core" 	          % "3.0.2" excludeAll(ExclusionRule("org.slf4j"), ExclusionRule("log4j")),
     
-    "org.reactivemongo"           %% "reactivemongo"                     % "0.11.11",
-    "io.scalac"                   %% "reactive-rabbit"                   % "1.1.0" excludeAll(ExclusionRule("org.reactivestreams")),
+    "org.reactivemongo"           %% "reactivemongo"                     % "0.11.13",
+    "io.scalac"                   %% "reactive-rabbit"                   % "1.1.1" excludeAll(ExclusionRule("org.reactivestreams")),
 
     "com.github.julien-truffaut"  %% "monocle-core"                      % monocleV,
     "com.github.julien-truffaut"  %% "monocle-macro"                     % monocleV,
